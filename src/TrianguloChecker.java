@@ -1,26 +1,38 @@
+import java.util.Map;
+
 public class TrianguloChecker {
-   public static boolean verificaTriangulo(double lado1, double lado2, double lado3) {
+    private Double lado1;
+    private Double lado2;
+    private Double lado3;
+
+    private String message;
+    private boolean isTriangle;
+
+
+
+    public void setLados(final Double lado1, final Double lado2, final Double lado3){
+        this.lado1 = lado1;
+        this.lado2 = lado2;
+        this.lado3 = lado3;
+    }
+
+
+   public void verificaTriangulo() {
+
        if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0) {
-           return false; // Lados não podem ser negativos ou zero
+          this.isTriangle = false;
+          this.message = "os lados não podem ser negativos ou igual a zero";
        }
 
        if ((lado1 + lado2 > lado3) && (lado1 + lado3 > lado2) && (lado2 + lado3 > lado1)) {
-           // Verifica a desigualdade triangular
-           return true;
+            this.isTriangle = true;
+           this.message =  "os lados formam um triângulo";
        }
 
-       return false;
+       this.isTriangle = false;
+       this.message = "deconhecido";
    }
 
    public static void main(String[] args) {
-       double lado1 = 5.0;
-       double lado2 = 4.0;
-       double lado3 = 3.0;
-
-       if (verificaTriangulo(lado1, lado2, lado3)) {
-           System.out.println("Os lados formam um triângulo.");
-       } else {
-           System.out.println("Os lados não formam um triângulo.");
-       }
    }
 }
