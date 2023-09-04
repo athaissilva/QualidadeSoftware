@@ -50,5 +50,14 @@ public class TrianguloTest {
         Assert.assertEquals("os lados formam um triângulo", response );
     }
 
+    @Test
+    public void trianguloTestValoresNegativos() {
+        this.trianguloChecker.setLados(-1.0, 2.0, 3.0);
+        this.trianguloChecker.verificaTriangulo();
+        final String response = this.trianguloChecker.getMessage();
+        final boolean isTriangle = this.trianguloChecker.isTriangle();
 
+        Assert.assertFalse(isTriangle);
+        Assert.assertEquals("os lados não podem ser negativos ou igual a zero", response);
+    }
 }
