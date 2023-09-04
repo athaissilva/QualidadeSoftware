@@ -33,6 +33,8 @@ public class TrianguloChecker {
        this.message = "deconhecido";
    }
 
+    cole seu test no arquivo 
+
    public static void main(String[] args) {
    }
 }
