@@ -8,56 +8,43 @@ import org.junit.experimental.theories.suppliers.TestedOn;
 
 
 public class TrianguloTest {
-    private TrianguloChecker trianguloChecker;
-
-    @After
-    @Before
-    public void before(){
-        this.trianguloChecker = new TrianguloChecker();
-    }
 
 
     @Test
     public void trinaguloTestCorrectValues1(){
-        this.trianguloChecker.setLados(2.0, 2.0, 2.0);
-        this.trianguloChecker.verificaTriangulo();
-        final boolean isTriangle = this.trianguloChecker.isTriangle();
-        final String response = this.trianguloChecker.getMessage();
+
+        final boolean isTriangle = TrianguloChecker.getIsTriangle(2.0, 2.0, 2.0);
+        final String response = TrianguloChecker.getTriangleType(2.0, 2.0, 2.0);
 
         Assert.assertTrue(isTriangle);
-        Assert.assertEquals("os lados formam um triângulo", response );
+        Assert.assertEquals("Equilatero", response );
     }
 
     @Test
     public void trinaguloTestCorrectValues2(){
-        this.trianguloChecker.setLados(2.0, 3.0, 2.0);
-        this.trianguloChecker.verificaTriangulo();
-        final boolean isTriangle = this.trianguloChecker.isTriangle();
-        final String response = this.trianguloChecker.getMessage();
+        final boolean isTriangle = TrianguloChecker.getIsTriangle(5.0, 7.0, 8.0);
+        final String response = TrianguloChecker.getTriangleType(5.0, 7.0, 8.0);
 
         Assert.assertTrue(isTriangle);
-        Assert.assertEquals("os lados formam um triângulo", response );
+        Assert.assertEquals("Escaleno", response );
     }
 
     @Test
     public void trinaguloTestCorrectValues3(){
-        this.trianguloChecker.setLados(3.0, 2.0, 3.0);
-        this.trianguloChecker.verificaTriangulo();
-        final boolean isTriangle = this.trianguloChecker.isTriangle();
-        final String response = this.trianguloChecker.getMessage();
+        final boolean isTriangle = TrianguloChecker.getIsTriangle(3.0, 2.0, 3.0);
+        final String response = TrianguloChecker.getTriangleType(3.0, 2.0, 3.0);
 
         Assert.assertTrue(isTriangle);
-        Assert.assertEquals("os lados formam um triângulo", response );
+        Assert.assertEquals("não é um triangulo", response );
     }
 
     @Test
     public void trianguloTestValoresNegativos() {
-        this.trianguloChecker.setLados(-1.0, 2.0, 3.0);
-        this.trianguloChecker.verificaTriangulo();
-        final String response = this.trianguloChecker.getMessage();
-        final boolean isTriangle = this.trianguloChecker.isTriangle();
+        final boolean isTriangle = TrianguloChecker.getIsTriangle(-1.0, 2.0, 3.0);
+        final String response = TrianguloChecker.getTriangleType(-1.0, 2.0, 3.0);
 
         Assert.assertFalse(isTriangle);
-        Assert.assertEquals("os lados não podem ser negativos ou igual a zero", response);
+        Assert.assertEquals("os lados não podem ser menor que zero", response);
     }
+
 }
