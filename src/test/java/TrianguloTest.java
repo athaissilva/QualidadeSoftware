@@ -46,5 +46,15 @@ public class TrianguloTest {
         Assert.assertFalse(isTriangle);
         Assert.assertEquals("os lados não podem ser menor que zero", response);
     }
+    
+ @Test
+    public void trianguloTestValoresNulos() {
+        final boolean isTriangle = TrianguloChecker.getIsTriangle(null, null, null);
+        final String response = TrianguloChecker.getTriangleType(null, null, null);
+
+        Assert.assertFalse(isTriangle);
+        Assert.assertEquals("os lados não podem ser nulos", response);
+    }
+    
 
 }
