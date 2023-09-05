@@ -26,12 +26,14 @@ public class TrianguloChecker {
         } else if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0) {
             message = "os lados não podem ser menor que zero";
         } else if ((lado1 + lado2 > lado3) && (lado1 + lado3 > lado2) && (lado2 + lado3 > lado1)) {
-            if (lado1.equals(lado2) && lado2.equals(lado3) && lado3.equals(lado1)) {
+            if (lado1.equals(lado2) && lado2.equals(lado3)) {
                 message = "Equilatero";
 
-            } else if ((lado1.equals(lado2) && !lado2.equals(lado3))
-                    && (lado2.equals(lado3) && !lado3.equals(lado1))
-                    && (lado3.equals(lado1) && !lado1.equals(lado2))) {
+            } else if (
+                    ((lado1.equals(lado2) && !lado1.equals(lado3))
+                    ||  (lado2.equals(lado3) && !lado2.equals(lado1))
+                    ||  (lado3.equals(lado1) && !lado3.equals(lado2)))
+            ) {
                 message = "Isosceles";
             } else if (!lado1.equals(lado2) && !lado2.equals(lado3) && !lado3.equals(lado1)) {
                 message = "Escaleno";

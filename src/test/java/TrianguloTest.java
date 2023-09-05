@@ -31,11 +31,11 @@ public class TrianguloTest {
 
     @Test
     public void trinaguloTestCorrectValues3(){
-        final boolean isTriangle = TrianguloChecker.getIsTriangle(3.0, 2.0, 3.0);
-        final String response = TrianguloChecker.getTriangleType(3.0, 2.0, 3.0);
+        final boolean isTriangle = TrianguloChecker.getIsTriangle(10.0, 12.0, 10.0);
+        final String response = TrianguloChecker.getTriangleType(10.0, 12.0, 10.0);
 
         Assert.assertTrue(isTriangle);
-        Assert.assertEquals("não é um triangulo", response );
+        Assert.assertEquals("Isosceles", response );
     }
 
     @Test
